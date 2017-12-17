@@ -9,8 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>管理员</title>
-    
+    <title>My JSP 'index.jsp' starting page</title>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -19,17 +18,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-
   </head>
   
   <body>
     <%
-    	String login=(String) session.getAttribute("login");
-    	if(login==null){
-    		response.sendRedirect("login.jsp");
-    		return;
+    	Integer count=(Integer) application.getAttribute("count");
+    	if(count!=null){
+    		count++;
+    	}else{
+    		count=1;
     	}
+    	application.setAttribute("count", count);
      %>
-    	 您好，欢迎您！<br/>
+     <form name="form1" method="post" action="count.jsp">
+     	<input type="submit" value="显示访问人数">
+     </form>
   </body>
 </html>

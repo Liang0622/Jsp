@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>管理员</title>
+    <title>My JSP 'create.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -24,12 +24,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
     <%
-    	String login=(String) session.getAttribute("login");
-    	if(login==null){
-    		response.sendRedirect("login.jsp");
-    		return;
-    	}
+    	session.setAttribute("test", "hello");
+    	response.sendRedirect("getCookie.jsp");
      %>
-    	 您好，欢迎您！<br/>
   </body>
 </html>
